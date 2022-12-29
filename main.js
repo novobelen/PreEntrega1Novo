@@ -3,8 +3,9 @@ alert("Bienvenido a PotterMania!")
 
 //-----------------------------------------------------
 let repiteProcesoCompra,
-    confirmaCompra
-
+    confirmaCompra,
+    esLoop = false
+debugger
 do {
     repiteProcesoCompra = false
     confirmaCompra = false
@@ -20,12 +21,16 @@ do {
 
         alert(`Felicidades por su compra! Usted ha adquido el Tomo ${tomoValidoSeleccionado}: ${nombreTomo}.`)
         repiteProcesoCompra = confirm("¿Desea comprar otro libro?")
+        if (!repiteProcesoCompra) {
+            alert("Gracias por elegirnos!")
+        }
     } else {
-        alert("Gracias por elegirnos!")
+        alert("Vuelva pronto. PotterMania!")
         repiteProcesoCompra = false
     }
 
-} while (confirmaCompra || repiteProcesoCompra);
+    esLoop = repiteProcesoCompra ? confirmaCompra : false
+} while (esLoop);
 
 function mostrarCatalogo() {
     let opcion = null
